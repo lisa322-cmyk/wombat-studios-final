@@ -1,93 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Wombat Studios</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1>WOMBAT STUDIOS</h1>
-                <h2>Ваші історії. Наше кіно.</h2>
-            </header>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Wombat Studios</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WOMBAT STUDIOS</h1>
+            <h2>Ваші історії. Наше кіно.</h2>
+        </header>
 
-            <div class="pitch-form">
-                <h3>🎬 ЗАЯВКА НА НОВИЙ ФІЛЬМ</h3>
-                <p>1. Опишіть ідею, історію або робочу ситуацію.</p>
-                <textarea
-                    id="storyDescription"
-                    placeholder="Наприклад: Ми намагалися знайти помилку в коді, а вона була в першому рядку..."
-                ></textarea>
-                <p>2. Оберіть жанр зі списку...</p>
-                <select id="genreSelector">
-                    <option value="Наукова Фантастика">
-                        Наукова Фантастика
-                    </option>
-                    <option value="Фентезі">Фентезі</option>
-                    <option value="Нуарний Детектив">Нуарний Детектив</option>
-                    <option value="Романтична Комедія">
-                        Романтична Комедія
-                    </option>
-                    <option value="Вестерн">Вестерн</option>
-                    <option value="Фільм Жахів">Фільм Жахів</option>
-                    <option value="Супергеройський Епік">
-                        Супергеройський Епік
-                    </option>
-                    <option value="Шпигунський Трилер">
-                        Шпигунський Трилер
-                    </option>
-                    <option value="Драма">Драма</option>
-                    <option value="Пригодницький Бойовик">
-                        Пригодницький Бойовик
-                    </option>
-                </select>
-                <p>...або впишіть свій власний!</p>
-                <input
-                    type="text"
-                    id="customGenre"
-                    placeholder="Наприклад: Психоделічний мюзикл"
-                />
-                <p>3. Завантажте фото для головної ролі.</p>
-                <input type="file" id="faceUpload" accept="image/*" />
-                <button id="generatePosterBtn">ЗАПУСТИТИ ПРОДАКШН!</button>
+        <div class="pitch-form">
+            <h3>🎬 ЗАЯВКА НА НОВИЙ ФІЛЬМ</h3>
+            <p>1. Опишіть ідею, історію або робочу ситуацію.</p>
+            <textarea id="storyDescription" placeholder="Наприклад: Ми намагалися знайти помилку в коді, а вона була в першому рядку..."></textarea>
+            <p>2. Оберіть жанр зі списку...</p>
+            <select id="genreSelector">
+                <option value="Наукова Фантастика">Наукова Фантастика</option>
+                <option value="Фентезі">Фентезі</option>
+                <option value="Нуарний Детектив">Нуарний Детектив</option>
+                <option value="Романтична Комедія">Романтична Комедія</option>
+                <option value="Вестерн">Вестерн</option>
+                <option value="Фільм Жахів">Фільм Жахів</option>
+                <option value="Супергеройський Епік">Супергеройський Епік</option>
+                <option value="Шпигунський Трилер">Шпигунський Трилер</option>
+                <option value="Драма">Драма</option>
+                <option value="Пригодницький Бойовик">Пригодницький Бойовик</option>
+            </select>
+            <p>...або впишіть свій власний!</p>
+            <input type="text" id="customGenre" placeholder="Наприклад: Психоделічний мюзикл">
+            <p>3. Завантажте фото для головної ролі.</p>
+            <input type="file" id="faceUpload" accept="image/*">
+            <button id="generatePosterBtn">ЗАПУСТИТИ ПРОДАКШН!</button>
+        </div>
+
+        <div id="results-container">
+            <div id="loading" class="hidden">
+                <p>Тиша на майданчику!.. Генеруємо ваш постер...</p>
+                <div class="spinner"></div>
             </div>
 
-            <div id="results-container">
-                <div id="loading" class="hidden">
-                    <p>Тиша на майданчику!.. Генеруємо ваш постер...</p>
-                    <div class="spinner"></div>
+            <div id="theatrical-release" class="hidden">
                 </div>
+            <button id="directorCutBtn" class="hidden">Перейти до режисерського монтажу</button>
 
-                <div id="theatrical-release" class="hidden"></div>
-                <button id="directorCutBtn" class="hidden">
-                    Перейти до режисерського монтажу
-                </button>
-
-                <div id="director-room" class="hidden">
-                    <h3>🎬 РЕЖИСЕРСЬКА КІМНАТА</h3>
-                    <div class="director-view">
-                        <div id="current-poster-view"></div>
-                        <div class="chat-container">
-                            <div id="chat-window"></div>
-                            <div class="chat-input-area">
-                                <textarea
-                                    id="directorInput"
-                                    placeholder="Ваші правки, режисере..."
-                                ></textarea>
-                                <button id="sendDirectorCommand">
-                                    Відправити Вомбату
-                                </button>
+            <div id="director-room" class="hidden">
+                <h3>🎬 РЕЖИСЕРСЬКА КІМНАТА</h3>
+                <div class="director-view">
+                    <div id="current-poster-view">
+                        </div>
+                    <div class="chat-container">
+                        <div id="chat-window">
                             </div>
+                        <div class="chat-input-area">
+                            <textarea id="directorInput" placeholder="Ваші правки, режисере..."></textarea>
+                            <button id="sendDirectorCommand">Відправити Вомбату</button>
                         </div>
                     </div>
-                    <button id="finishCutBtn">Завершити монтаж</button>
                 </div>
-
-                <div id="final-cut" class="hidden"></div>
+                <button id="finishCutBtn">Завершити монтаж</button>
             </div>
+
+            <div id="final-cut" class="hidden">
+                </div>
         </div>
-        <script src="script.js"></script>
-    </body>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
