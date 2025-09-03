@@ -20,7 +20,7 @@ const finishCutBtn = document.getElementById('finishCutBtn');
 const finalCutDiv = document.getElementById('final-cut');
 
 // --- ЧАСТИНА 2: ВАШІ НАЛАШТУВАННЯ ---
-const MY_API_KEY = "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";
+const MY_API_KEY = "ADD_CODE_HERE";
 const userAvatarUrl = "https://i.imgur.com/7D322gh.png";
 const wombatAvatarUrl = "https://i.imgur.com/kBg8u2s.png";
 
